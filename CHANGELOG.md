@@ -4,14 +4,6 @@ All notable changes to this project are listed here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow
 [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
-
-### Added
-
-- README section on keeping your shortcuts in your own repository: install the tool as a dev
-  dependency or globally, or run it from a clone. It also covers a VS Code task and publishing
-  to GitHub Pages.
-
 ## [1.0.0] - 2026-11-07
 
 First version, based on the [bookmarks](https://github.com/damian-krawczyk/bookmarks) project and
@@ -41,7 +33,7 @@ its approach: one Markdown file, a local page that edits it, and a static page f
   - **Navigation**: level filters (one dropdown per heading level, with counts), a folder tree
     with drag and drop, tags.
   - **Favorites**: a ★ toggle on each card and a favorites filter (`f`).
-  - **Search** with key aliases (`cmd+p` finds ⌘P), `#tag`, `is:fav` and `os:mac`.
+  - **Search** with key aliases (`cmd+p` finds ⌘P), `#tag` and `is:fav`.
   - **Editor** with a key recorder, alternative key combos, and a warning for keys that are
     already used.
   - Dark/light theme and English, Polish and Spanish interfaces.
@@ -49,6 +41,14 @@ its approach: one Markdown file, a local page that edits it, and a static page f
   - GitHub Pages workflow that tests, validates, builds and deploys the page.
   - VS Code tasks to serve, build, validate and test.
   - Tests using `node:test`.
+- README section on keeping your shortcuts in your own repository: install the tool as a dev
+  dependency or globally, or run it from a clone. It also covers a VS Code task and publishing
+  to GitHub Pages.
 
-[Unreleased]: https://github.com/damian-krawczyk/shortcuts/compare/v1.0.0...HEAD
+### Changed
+
+- The search filter `os:<name>` is replaced by `in:<name>`. It matches a folder name at any
+  level, because levels can mean anything. The search box tip shows `in:vs`.
+
+
 [1.0.0]: https://github.com/damian-krawczyk/shortcuts/releases/tag/v1.0.0

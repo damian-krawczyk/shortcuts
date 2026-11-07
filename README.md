@@ -204,8 +204,8 @@ version: 1.95
 - **Search**: filters as you type across action, description, keys, tags, folder names and versions.
   - Key names match their aliases: `command p`, `cmd+p` and `⌘p` all find ⌘P.
   - It ignores accents.
-  - `#tag` filters by tag, `is:fav` shows favorites and `os:mac` (or `os:win`, `os:linux`, or any
-    folder name) the shortcuts for one system.
+  - `#tag` filters by tag, `is:fav` shows favorites and `in:name` shortcuts in a
+    folder whose name contains `name`, at any level (`in:vs` finds *VS Code*).
   - Terms combine.
 - **Add / edit**: use the *Add shortcut* button, `n`, or double-click a card.
   - Type the keys, or click **Record** and press them. Several presses make a chord, and

@@ -146,16 +146,16 @@
   }
 
   // ---- search ----
-  // "#tag" tags, "is:fav" favorites, "os:mac" systems; other words must all match. Key names
+  // "#tag" tags, "is:fav" favorites, "in:name" folders (any level); other words must all match. Key names
   // match their aliases too ("command", "⌘" and "cmd" are the same); "cmd+p" is two words.
   function parseQuery(q) {
-    const tags = [], words = [], os = [];
+    const tags = [], words = [], folders = [];
     let fav = false;
     for (const raw of q.trim().split(/\s+/).filter(Boolean)) {
       let m;
       if (raw.startsWith("#") && raw.length > 1) tags.push(fold(raw.slice(1)));
       else if (/^is:fav/i.test(raw)) fav = true;
-      else if ((m = /^os:(.+)$/i.exec(raw))) os.push(fold(m[1]));
+      else if ((m = /^in:(.+)$/i.exec(raw))) folders.push(fold(m[1]));
       else {
         const pieces = raw.length > 1 && raw.includes("+") ? raw.split("+").filter(Boolean) : [raw];
         for (const p of pieces) {
@@ -164,7 +164,7 @@
         }
       }
     }
-    return { tags, words, os, fav };
+    return { tags, words, folders, fav };
   }
 
   function startsWord(hay, a) {
@@ -173,14 +173,14 @@
   }
 
   function filtered() {
-    const { tags, words, os, fav } = parseQuery(state.query);
+    const { tags, words, folders, fav } = parseQuery(state.query);
     return Model.allEntries(state.model).filter(({ entry, path }) => {
       if (!within(path, state.folder)) return false;
       if (!matchesLevels(path)) return false;
       if ((fav || state.favOnly) && !entry.favorite) return false;
-      if (os.length) {
-        const names = path.map(fold), kind = Model.kindOf(path);
-        if (!os.every((o) => names.some((n) => n.includes(o)) || kind === o || (o.startsWith("win") && kind === "win"))) return false;
+      if (folders.length) {
+        const names = path.map(fold);
+        if (!folders.every((f) => names.some((n) => n.includes(f)))) return false;
       }
       const etags = entry.tags.map(fold);
       if (!tags.every((tg) => etags.some((x) => x === tg || x.startsWith(tg)))) return false;

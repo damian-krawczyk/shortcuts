@@ -1,7 +1,7 @@
 {
   "_name": "Polski",
   "app.title": "Skróty",
-  "search.placeholder": "Szukaj…  (#tag, is:fav, os:mac, cmd+p)",
+  "search.placeholder": "Szukaj…  (#tag, is:fav, in:vs, cmd+p)",
   "search.clear": "Wyczyść wyszukiwanie",
   "action.add": "Dodaj skrót",
   "action.edit": "Edytuj",

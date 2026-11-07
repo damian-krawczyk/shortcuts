@@ -1,7 +1,7 @@
 {
   "_name": "Español",
   "app.title": "Atajos",
-  "search.placeholder": "Buscar…  (#etiqueta, is:fav, os:mac, cmd+p)",
+  "search.placeholder": "Buscar…  (#etiqueta, is:fav, in:vs, cmd+p)",
   "search.clear": "Borrar búsqueda",
   "action.add": "Añadir atajo",
   "action.edit": "Editar",

@@ -1,7 +1,7 @@
 {
   "_name": "English",
   "app.title": "Shortcuts",
-  "search.placeholder": "Search…  (#tag, is:fav, os:mac, cmd+p)",
+  "search.placeholder": "Search…  (#tag, is:fav, in:vs, cmd+p)",
   "search.clear": "Clear search",
   "action.add": "Add shortcut",
   "action.edit": "Edit",
