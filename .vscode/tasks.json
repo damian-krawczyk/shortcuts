@@ -1,0 +1,64 @@
+{
+  // Cmd+Shift+B: serve shortcuts.md on localhost (default build task).
+  // Everything else: Terminal › Run Task…. Serve tasks keep running until you
+  // press Ctrl+C in their terminal or use Terminal › Terminate Task.
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Serve shortcuts.md on the LOCALHOST",
+      "detail": "Edit shortcuts.md in the browser at http://127.0.0.1:4190/",
+      "type": "shell",
+      "command": "node",
+      "args": ["bin/shortcuts.js", "serve", "shortcuts.md", "--open"],
+      "group": { "kind": "build", "isDefault": true },
+      "isBackground": true,
+      "problemMatcher": {
+        // Background task: "ready" once the server prints its URL.
+        "owner": "shortcuts",
+        "pattern": { "regexp": "^(no such file): (.*)$", "kind": "file", "file": 2, "message": 1 },
+        "background": { "activeBegins": true, "beginsPattern": "^(serving |created )", "endsPattern": "^serving .* at http://" }
+      },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true }
+    },
+    {
+      "label": "Serve current Markdown file on the LOCALHOST",
+      "detail": "Like Serve shortcuts.md, for the .md file open in the editor (port 4191)",
+      "type": "shell",
+      "command": "node",
+      "args": ["bin/shortcuts.js", "serve", "${file}", "--port", "4191", "--open"],
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "shortcuts",
+        "pattern": { "regexp": "^(no such file): (.*)$", "kind": "file", "file": 2, "message": 1 },
+        "background": { "activeBegins": true, "beginsPattern": "^serving ", "endsPattern": "^serving .* at http://" }
+      },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true }
+    },
+    {
+      "label": "Build static page (dist/index.html)",
+      "detail": "The read-only page GitHub Pages serves",
+      "type": "shell",
+      "command": "node",
+      "args": ["bin/shortcuts.js", "build", "shortcuts.md", "-o", "dist/index.html"],
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true }
+    },
+    {
+      "label": "Validate shortcuts.md",
+      "type": "shell",
+      "command": "node",
+      "args": ["bin/shortcuts.js", "validate", "shortcuts.md"],
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true }
+    },
+    {
+      "label": "Run tests",
+      "type": "shell",
+      "command": "npm",
+      "args": ["test"],
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true }
+    }
+  ]
+}

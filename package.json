@@ -1,0 +1,18 @@
+{
+  "name": "shortcuts",
+  "version": "1.0.0",
+  "description": "Keyboard shortcuts per OS and software in one Markdown file, browsed and edited in a web page, published to GitHub Pages.",
+  "license": "MIT",
+  "author": "Damian Krawczyk",
+  "repository": "github:damian-krawczyk/shortcuts",
+  "bin": { "shortcuts": "bin/shortcuts.js" },
+  "files": ["bin/", "src/", "README.md", "CHANGELOG.md"],
+  "scripts": {
+    "serve": "node bin/shortcuts.js serve shortcuts.md --open",
+    "dev": "node bin/shortcuts.js serve examples/shortcuts.md --open",
+    "build": "node bin/shortcuts.js build shortcuts.md -o dist/index.html",
+    "validate": "node bin/shortcuts.js validate shortcuts.md",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": { "node": ">=18" }
+}
