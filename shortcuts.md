@@ -4,15 +4,31 @@ title: My shortcuts
 
 # macOS
 
-- [x] `Cmd+Space` Spotlight — search apps, files and the web
-- [ ] `Shift+Cmd+4` Screenshot of an area
-- [ ] `Ctrl+Cmd+Q` Lock the screen
-- [ ] `Cmd+Tab` Switch apps
+## Excel
+
+- [x] `Ctrl+;` Insert current date to cell
+  tags: #date
+- [x] `Cmd+;` Insert current time to cell
+  tags: #date
 
 ## VS Code
 
-- [x] `Shift+Cmd+P` / `F1` Command Palette — run any command
-- [x] `Cmd+P` Go to file
-- [ ] `Cmd+D` Add next match to the selection
-- [ ] `Cmd+K Cmd+S` Keyboard Shortcuts editor
+- [ ] `Ctrl+Backtick` Show/Hide terminal window
+  tags: #terminal
 
+## Terminal
+
+- [ ] `Ctrl+A` Move to the beginning of the line
+  tags: #terminal
+- [x] `Alt+Left` Move by word to the left
+  tags: #terminal
+- [x] `Alt+Right` Move by word to the right
+  tags: #terminal
+- [ ] `Ctrl+E` Move to the end of the line
+  tags: #terminal
+- [ ] `Ctrl+W` Delete word on the left from cursor
+  tags: #terminal
+- [ ] `Esc+D` Delete word on the right from cursor
+  tags: #terminal
+- [ ] `Ctrl+K` Delete everything on the right from cursor
+  tags: #terminal
